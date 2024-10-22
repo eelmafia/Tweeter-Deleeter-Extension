@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Tweeter Deleeter",
+  "short_name": "Tweeter Deleeter",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alex V",
+    "url": "https://github.com/eelmafia/Tweeter-Deleeter-Extension"
+  },
+  "description": "Automatically remove your X (Twitter) posts and likes from your account.",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "32": "icon32.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://x.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*"
+      ],
+      "js": [
+        "src/contentScript.tsx"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icon16.png",
+        "icon32.png",
+        "icon48.png",
+        "icon128.png"
+      ],
+      "matches": []
+    }
+  ]
+}
